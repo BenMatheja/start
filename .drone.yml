@@ -1,0 +1,10 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: publish
+    image: plugins/docker
+    settings:
+      auto_tag: true
+      dockerfile: Dockerfile
