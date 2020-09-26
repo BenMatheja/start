@@ -8,5 +8,6 @@ steps:
     settings:
       auto_tag: true
       dockerfile: Dockerfile
-      repo: benmatheja/start
+      repo: registry.quaysi.de/benmatheja/start
       registry: registry.quaysi.de
+      dry_run: true
