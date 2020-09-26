@@ -10,3 +10,6 @@ steps:
       dockerfile: Dockerfile
       repo: registry.quaysi.de/benmatheja/start
       registry: registry.quaysi.de
+trigger:
+  branch:
+  - master
