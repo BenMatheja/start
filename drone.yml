@@ -6,4 +6,3 @@ steps:
       image: plugins/docker
       settings:
         auto_tag: true
-
