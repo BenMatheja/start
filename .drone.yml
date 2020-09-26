@@ -1,8 +1,13 @@
 kind: pipeline
 type: docker
-name: default
+name: build
 
 steps:
+  - name: build
+    image: node:alpine
+    commands:
+      - npm install
+      - npx gatsby build
   - name: publish
     image: plugins/docker
     settings:
@@ -10,6 +15,6 @@ steps:
       dockerfile: Dockerfile
       repo: registry.quaysi.de/benmatheja/start
       registry: registry.quaysi.de
-trigger:
-  branch:
-  - master
+    when:
+      branch:
+      - master
