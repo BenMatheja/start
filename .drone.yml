@@ -35,9 +35,9 @@ steps:
         - cd /opt/stack 
         - docker-compose pull start 
         - docker-compose up -d start  
-      when:
-        branch:
-        - master
+    when:
+      branch:
+      - master
 trigger:
   event:
     exclude:
