@@ -1,7 +1,8 @@
 import React from 'react'
 import Layout from '../components/layout'
+import Img from "gatsby-image"
 
-export default function Home() {
+export default function Home({ data }) {
   return (
     <Layout>
       <h1>Hi! on the Quaysi.de Portal</h1>
@@ -37,6 +38,22 @@ export default function Home() {
           <a href="http://twitch.tv/">twitch</a>
         </li>
       </ul>
+      <Img
+        className="headshot"
+        fixed={data.file.childImageSharp.fixed}
+        alt="headshot"
+      />
     </Layout>
   );
 }
+export const query = graphql`
+  query {
+    file(relativePath: { eq: "images/unifi.png" }) {
+      childImageSharp {
+        fixed(width: 125, height: 125) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`
