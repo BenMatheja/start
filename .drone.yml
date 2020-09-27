@@ -10,6 +10,10 @@ steps:
       dockerfile: Dockerfile
       repo: registry.quaysi.de/benmatheja/start
       registry: registry.quaysi.de
+    when:
+      branch:
+      - master
 trigger:
-  branch:
-  - master
+  event:
+    exclude:
+    - pull_request
