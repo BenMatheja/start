@@ -11,8 +11,8 @@ steps:
       - npm install
   # Lint Gatsby
   - name: eslint
-      group: install
-      image: marcbachmann/eslint:5.10.0
+    group: install
+    image: marcbachmann/eslint:5.10.0
   # Build Gatsby
   - name: Gatsby Build
     image: node:alpine
