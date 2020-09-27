@@ -3,13 +3,25 @@ type: docker
 name: build
 
 steps:
-  # Build Gatsby
-  - name: build
+  # Install
+  - name: npm install
     image: node:alpine
     commands:
+      - apk add autoconf automake libtool make tiff jpeg zlib zlib-dev pkgconf nasm file gcc musl-dev
       - npm install
+
+  # Lint Gatsby - is commented out as i'm unsure how to configure right
+  # - name: eslint
+  #   image: marcbachmann/eslint
+  #   failure: ignore
+
+  # Build Gatsby
+  - name: gatsby Build
+    image: node:alpine
+    commands:
       - npx gatsby build
-  # Publish Docker-Container to Registry
+
+  # Publish Docker-Container to Registry only on Master
   - name: publish
     image: plugins/docker
     settings:
@@ -20,7 +32,7 @@ steps:
     when:
       branch:
       - master
-  # Deploy to Host
+  # Deploy to Host only on Master
   - name: deploy
     image: appleboy/drone-ssh
     settings:
