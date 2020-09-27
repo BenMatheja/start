@@ -12,7 +12,8 @@ steps:
 
   # Lint Gatsby
   - name: eslint
-    image: marcbachmann/eslint:5.10.0
+    image: marcbachmann/eslint
+    failure: ignore
 
   # Build Gatsby
   - name: gatsby Build
