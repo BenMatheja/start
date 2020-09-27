@@ -3,14 +3,23 @@ type: docker
 name: build
 
 steps:
-  # Build Gatsby
-  - name: build
+  # Install
+  - name: npm install
     image: node:alpine
+    group: install
     commands:
       - npm install
+  # Lint Gatsby
+  - name: eslint
+      group: install
+      image: marcbachmann/eslint:5.10.0
+  # Build Gatsby
+  - name: Gatsby Build
+    image: node:alpine
+    commands:
       - npx gatsby build
   # Publish Docker-Container to Registry
-  - name: publish
+  - name: Publish
     image: plugins/docker
     settings:
       auto_tag: true
