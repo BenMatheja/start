@@ -10,10 +10,10 @@ steps:
       - apk add autoconf automake libtool make tiff jpeg zlib zlib-dev pkgconf nasm file gcc musl-dev
       - npm install
 
-  # Lint Gatsby
-  - name: eslint
-    image: marcbachmann/eslint
-    failure: ignore
+  # Lint Gatsby - is commented out as i'm unsure how to configure right
+  # - name: eslint
+  #   image: marcbachmann/eslint
+  #   failure: ignore
 
   # Build Gatsby
   - name: gatsby Build
