@@ -6,14 +6,12 @@ steps:
   # Install
   - name: npm install
     image: node:alpine
-    group: install
     commands:
-      - apk add autoconf automake libtool make gcc musl-dev nasm
+      - apk add autoconf automake libtool make gcc musl-dev nasm file
       - npm install
 
   # Lint Gatsby
   - name: eslint
-    group: install
     image: marcbachmann/eslint:5.10.0
 
   # Build Gatsby
