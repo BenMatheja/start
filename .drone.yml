@@ -30,8 +30,11 @@ steps:
         from_secret: ssh_username
       password:
         from_secret: ssh_password
+      script_stop: true
       script:
-        - /bin/bash ./update.sh
+        - cd /opt/stack 
+        - docker-compose pull start 
+        - docker-compose up -d start  
       when:
         branch:
         - master
