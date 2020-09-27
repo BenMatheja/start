@@ -38,11 +38,11 @@ export default function Home({ data }) {
           <a href="http://twitch.tv/">twitch</a>
         </li>
       </ul>
-      <Img
+      {/* <Img
         className="headshot"
         fixed={data.file.childImageSharp.fixed}
         alt="headshot"
-      />
+      /> */}
     </Layout>
   );
 }
