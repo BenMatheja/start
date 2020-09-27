@@ -7,7 +7,7 @@ steps:
   - name: npm install
     image: node:alpine
     commands:
-      - apk add autoconf automake libtool make tiff jpeg zlib zlib-dev pkgconf nasm file
+      - apk add autoconf automake libtool make tiff jpeg zlib zlib-dev pkgconf nasm file gcc musl-dev
       - npm install
 
   # Lint Gatsby
