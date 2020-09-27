@@ -8,18 +8,22 @@ steps:
     image: node:alpine
     group: install
     commands:
+      - apk add autoconf automake libtool make gcc musl-dev nasm
       - npm install
+
   # Lint Gatsby
   - name: eslint
     group: install
     image: marcbachmann/eslint:5.10.0
+
   # Build Gatsby
-  - name: Gatsby Build
+  - name: gatsby Build
     image: node:alpine
     commands:
       - npx gatsby build
-  # Publish Docker-Container to Registry
-  - name: Publish
+
+  # Publish Docker-Container to Registry only on Master
+  - name: publish
     image: plugins/docker
     settings:
       auto_tag: true
@@ -29,7 +33,7 @@ steps:
     when:
       branch:
       - master
-  # Deploy to Host
+  # Deploy to Host only on Master
   - name: deploy
     image: appleboy/drone-ssh
     settings:
