@@ -14,6 +14,20 @@ Kick off your project with this hello-world boilerplate. This starter ships with
 
 _Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
 
+## Development
+Build the image
+```shell
+docker build -t benmatheja/start:0.0 .
+```
+
+Run the image
+
+```shell
+docker run --publish 8000:80 --name start benmatheja/start:0.0
+```
+
+
+
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**
